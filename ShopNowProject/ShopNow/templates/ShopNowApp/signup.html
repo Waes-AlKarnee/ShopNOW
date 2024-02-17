@@ -1,0 +1,32 @@
+{% extends 'ShopNowApp/base.html' %}
+
+      {% block contant %}
+
+      <div class="d-flex justify-content-center p-2">
+            <div>
+                  <h1 class="text-center">SIGNUP HERE</h1>
+                  
+                  {% if messages %}
+                        
+                        {% for msg in messages %}
+                        <p class="alert alert-success my-2">{{ msg }}</p>
+                        {% endfor %}
+                              
+                  {% endif %}
+                        
+            </div>
+      </div>
+
+      {% comment %} {{ forms }} {% endcomment %}
+      <div class="container w-50 p-4 shadow-lg rounded-4">
+            <form method="post" class="px-4 py-4">
+                  {% csrf_token %}
+                  
+                  {% for fm in forms %}
+                        {{fm.label_tag}} {{fm}}
+                  {% endfor %}
+                  <input type="submit" value="Sign Up" class="btn btn-danger mt-2">
+            </form>
+      </div>
+        
+      {% endblock contant %}
