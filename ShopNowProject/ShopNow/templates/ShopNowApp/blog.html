@@ -1,0 +1,23 @@
+{% extends 'ShopNowApp/base.html' %}
+
+      {% block contant %}
+
+      <div class="container my-5">
+        <div class="row gap-3 justify-content-center align-items-center">
+      {% for shopCard in allpose %}
+              <div class="card border-primary col-3 shadow-lg" style="width: 18rem;">
+                <img src={{shopCard.card_image.url}} class="card-img-top mt-3" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">{{shopCard.title}}</h5>
+                  <p class="card-text">{{shopCard.describtion}}</p>
+                </div>
+                <p>
+                  <small>{{shopCard.date_posted}}</small>
+                </p>
+              </div>
+      {% endfor %}
+        </div>
+      </div>
+        
+        
+      {% endblock contant %}

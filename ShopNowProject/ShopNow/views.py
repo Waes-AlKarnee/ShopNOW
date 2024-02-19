@@ -2,13 +2,15 @@ from django.shortcuts import render,redirect
 from .forms import SignUpForm,LoginForm
 from django.contrib import messages
 from django.contrib.auth import authenticate,login,logout
+from .models import shopCard
 
 # Create your views here.
 def homepage(request):
     return render(request, 'ShopNowApp/home.html')
 
-def shoppage(request):
-    return render(request, 'ShopNowApp/shop.html')
+def blogpage(request):
+    allpost = shopCard.objects.all()
+    return render(request, 'ShopNowApp/blog.html',{'allpose':allpost})
 # -------------------Login------------
 
 def loginpage(request):
